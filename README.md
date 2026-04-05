@@ -48,9 +48,13 @@ Create a .env file in the root directory and add:
     node server.js
 ### 5️⃣ Access API
 
-API Documentation URL:
+Base URL:
+    
+    https://finance-tracker-x2d6.onrender.com
 
-    http://localhost:5000/api
+Swagger Docs:
+    
+    https://finance-tracker-x2d6.onrender.com/api-docs
 
 ---
 
@@ -133,7 +137,7 @@ API Documentation URL:
 
 Swagger UI available at:
 
-
+    https://finance-tracker-x2d6.onrender.com
 
 ---
 
@@ -154,14 +158,6 @@ Swagger UI available at:
 ![Swagger Auth](docs/swagger-auth.png)
 
 ---
-
-### 🔹 Records API (Pagination & Filters)
-![Swagger Records](docs/swagger-records.png)
-
----
-
-### 🔹 Dashboard API
-![Swagger Dashboard](docs/swagger-dashboard.png)
 
 ## 👨‍💻 Author
 
