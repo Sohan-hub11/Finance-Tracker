@@ -10,7 +10,7 @@ const asyncHandler = require("../utils/asyncHandler");
 exports.register = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
 
-  const hashed = await bcrypt.hash(password, 10);
+  const hashed = await bcrypt.hash(password.toString(), 10);
 
   const user = await User.create({
     name,
@@ -37,7 +37,7 @@ exports.login = asyncHandler(async (req, res) => {
 
   if (!user) return res.status(400).json({ msg: "User not found" });
 
-  const isMatch = await bcrypt.compare(password, user.password);
+  const isMatch = await bcrypt.compare(password.toString(), user.password);
 
   if (!isMatch) return res.status(400).json({ msg: "Wrong password" });
 

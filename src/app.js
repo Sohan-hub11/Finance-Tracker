@@ -3,8 +3,13 @@ const authRoutes = require('./routes/auth.route');
 const recordRoutes = require('./routes/record.route');
 const dashboardRoutes = require('./routes/dashboard.route');
 const errorHandler = require("./middlewares/error.middleware");
+const swaggerUi = require("swagger-ui-express");
+const swaggerSpec = require("./config/swagger");
 
 const app = express();
+
+// Swagger UI setup.
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Middleware to parse JSON bodies
 app.use(express.json());
