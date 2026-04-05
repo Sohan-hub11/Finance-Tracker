@@ -1,0 +1,25 @@
+{
+  "name": "finance-tracker",
+  "version": "1.0.0",
+  "description": "Building the backend for a finance dashboard system where different users interact with financial records based on their role.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sohan-hub11/Finance-Tracker.git"
+  },
+  "keywords": [],
+  "author": "Sohan Samanta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sohan-hub11/Finance-Tracker/issues"
+  },
+  "homepage": "https://github.com/Sohan-hub11/Finance-Tracker#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
