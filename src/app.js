@@ -8,6 +8,11 @@ const swaggerSpec = require("./config/swagger");
 
 const app = express();
 
+//root route redirects to API docs.
+app.get("/", (req, res) => {
+  res.redirect("/api-docs");
+});
+
 // Swagger UI setup.
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
