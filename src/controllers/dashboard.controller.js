@@ -1,6 +1,11 @@
 const Record = require("../models/record.model");
+const asyncHandler = require("../utils/asyncHandler");
 
-exports.getSummary = async (req, res) => {
+/**
+* - get dashboard summary controller
+* - GET /api/dashboard
+*/
+exports.getSummary = asyncHandler(async (req, res) => {
   const income = await Record.aggregate([
     { $match: { type: "income" } },
     { $group: { _id: null, total: { $sum: "$amount" } } },
@@ -17,4 +22,4 @@ exports.getSummary = async (req, res) => {
     netBalance:
       (income[0]?.total || 0) - (expense[0]?.total || 0),
   });
-};
+});

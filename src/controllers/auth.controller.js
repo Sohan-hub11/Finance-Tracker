@@ -1,8 +1,13 @@
 const User = require("../models/user.model");
 const bcrypt = require("bcryptjs");
 const generateToken = require("../utils/generateToken");
+const asyncHandler = require("../utils/asyncHandler");
 
-exports.register = async (req, res) => {
+/**
+* - user registration controller
+* - POST /api/auth/register
+*/
+exports.register = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
 
   const hashed = await bcrypt.hash(password, 10);
@@ -13,10 +18,19 @@ exports.register = async (req, res) => {
     password: hashed,
   });
 
-  res.json(user);
-};
+  res.status(201)
+  .json( {
+    message: "User registered successfully",
+    user
+  });
+});
 
-exports.login = async (req, res) => {
+
+/**
+* - user login controller
+* - POST /api/auth/login
+*/
+exports.login = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
   const user = await User.findOne({ email });
@@ -29,5 +43,20 @@ exports.login = async (req, res) => {
 
   const token = generateToken(user);
 
-  res.json({ token });
-};
+  res.cookie('token', token);
+
+  res.status(200).json({ 
+    message: "User logged in successfully",
+    token });
+});
+
+/**
+* - user logout controller
+* - POST /api/auth/logout
+*/
+exports.logout = (req, res) => {
+  res.clearCookie('token');
+  res.status(200).json({
+    message: "User logged out successfully",
+  });
+}

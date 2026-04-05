@@ -2,6 +2,7 @@ const express = require('express');
 const authRoutes = require('./routes/auth.route');
 const recordRoutes = require('./routes/record.route');
 const dashboardRoutes = require('./routes/dashboard.route');
+const errorHandler = require("./middlewares/error.middleware");
 
 const app = express();
 
@@ -14,7 +15,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/records", recordRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 
-
+// Error Middleware
+app.use(errorHandler);
 
 
 module.exports = app;
