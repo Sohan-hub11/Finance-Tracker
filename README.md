@@ -133,6 +133,15 @@ Swagger Docs:
 
 ---
 
+## 🚀 Areas for improvement:
+- Implement refresh tokens and token blacklisting for enhanced authentication security.
+- Add request validation using a schema validation library.
+- Introduce rate limiting and logging for production readiness.
+- Extend dashboard analytics with more detailed insights.
+- Add automated testing for reliability.
+
+---
+
 ## 📘 API Documentation
 
 Swagger UI available at:
