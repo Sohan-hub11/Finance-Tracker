@@ -5,6 +5,7 @@ const dashboardRoutes = require('./routes/dashboard.route');
 const errorHandler = require("./middlewares/error.middleware");
 const swaggerUi = require("swagger-ui-express");
 const swaggerSpec = require("./config/swagger");
+const cookieParser = require('cookie-parser');
 
 const app = express();
 
@@ -18,6 +19,8 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Middleware to parse JSON bodies
 app.use(express.json());
+
+app.use(cookieParser());
 
 // Routes
 
