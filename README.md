@@ -146,7 +146,7 @@ Swagger Docs:
 
 Swagger UI available at:
 
-    https://finance-tracker-x2d6.onrender.com
+    https://finance-tracker-x2d6.onrender.com/api-docs
 
 ---
 
